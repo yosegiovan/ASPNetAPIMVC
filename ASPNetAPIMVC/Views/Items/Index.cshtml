@@ -1,0 +1,51 @@
+﻿@model IEnumerable<API.Models.IndexItemModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.supplier_details.SupplierName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.item_details.ItemName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.item_details.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.item_details.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.supplier_details.SupplierName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.item_details.ItemName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.item_details.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.item_details.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.item_details.ItemID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.item_details.ItemID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.item_details.ItemID })
+        </td>
+    </tr>
+}
+
+</table>

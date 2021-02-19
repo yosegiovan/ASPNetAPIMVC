@@ -1,0 +1,50 @@
+﻿@model API.Models.IndexItemModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Item</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.supplier_details.SupplierName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.supplier_details.SupplierName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.item_details.ItemName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.item_details.ItemName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.item_details.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.item_details.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.item_details.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.item_details.Price)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.item_details.ItemID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

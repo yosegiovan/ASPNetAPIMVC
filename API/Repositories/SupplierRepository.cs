@@ -43,23 +43,23 @@ namespace API.Repositories
         public IEnumerable<Supplier> Get()
         {
             //throw new NotImplementedException();
-            List<Supplier> ie = new List<Supplier>();
-            //Supplier s = new Supplier();
-            connection.Open();
+            //List<Supplier> ie = new List<Supplier>();
+            //connection.Open();
 
-            SqlCommand command = new SqlCommand("EXEC SP_RetrieveSupplierAll", connection);
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                //Console.WriteLine(String.Format("{0}", reader[0]));
-                ie.Add(new Supplier() { SupplierID = Convert.ToInt32(String.Format("{0}", reader[0])),
-                SupplierName = String.Format("{0}", reader[1]) } );
-            }
+            //SqlCommand command = new SqlCommand("EXEC SP_RetrieveSupplierAll", connection);
+            //SqlDataReader reader = command.ExecuteReader();
+            //while (reader.Read())
+            //{
+            //    //Console.WriteLine(String.Format("{0}", reader[0]));
+            //    ie.Add(new Supplier() { SupplierID = Convert.ToInt32(String.Format("{0}", reader[0])),
+            //    SupplierName = String.Format("{0}", reader[1]) } );
+            //}
 
-            //reader.Close();
-            //command.Dispose();
-            //connection.Close();
-            return ie;
+            var SP_Name = "SP_RetrieveSupplierAll";
+            var result = connection.Query<Supplier>(SP_Name, commandType: CommandType.StoredProcedure);
+            return result;
+
+            //return ie;
         }
 
         public async Task<IEnumerable<Supplier>> Get(int SupplierID)

@@ -23,7 +23,8 @@ namespace API.Controllers
             }
             catch 
             {
-                return Content(HttpStatusCode.BadRequest, "Failed to Create Supplier");
+                //return Content(HttpStatusCode.BadRequest, "Failed to Create Supplier");
+                return BadRequest("Failed to Create Supplier");
             }
         }
 
@@ -38,7 +39,8 @@ namespace API.Controllers
             }
             catch
             {
-                return Content(HttpStatusCode.BadRequest, "Failed to Get Supplier");
+                //return Content(HttpStatusCode.BadRequest, "Failed to Get Supplier");
+                return BadRequest("Failed to Get Supplier");
             }
 
         }
@@ -54,7 +56,8 @@ namespace API.Controllers
             }
             catch
             {
-                return Content(HttpStatusCode.BadRequest, "Failed to Get Supplier By ID");
+                //return Content(HttpStatusCode.BadRequest, "Failed to Get Supplier By ID");
+                return BadRequest("Failed to to Get Supplier By ID");
             }
         }
 
@@ -67,7 +70,8 @@ namespace API.Controllers
             }
             catch
             {
-                return Content(HttpStatusCode.BadRequest, "Failed to Delete Supplier");
+                //return Content(HttpStatusCode.BadRequest, "Failed to Delete Supplier");
+                return BadRequest("Failed to Delete Supplier");
             }
         }
 
@@ -80,7 +84,8 @@ namespace API.Controllers
             }
             catch
             {
-                return Content(HttpStatusCode.BadRequest, "Failed to Update Supplier");
+                //return Content(HttpStatusCode.BadRequest, "Failed to Update Supplier");
+                return BadRequest("Failed to Update Supplier");
             }
         }
     }

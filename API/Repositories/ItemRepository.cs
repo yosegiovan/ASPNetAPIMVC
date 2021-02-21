@@ -46,28 +46,29 @@ namespace API.Repositories
         public IEnumerable<Item> Get()
         {
             //throw new NotImplementedException();
-            List<Item> ie = new List<Item>();
-            connection.Open();
+            //List<Item> ie = new List<Item>();
+            //connection.Open();
 
-            SqlCommand command = new SqlCommand("EXEC SP_RetrieveItemAll", connection);
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                //Console.WriteLine(String.Format("{0}", reader[0]));
-                ie.Add(new Item()
-                {
-                    ItemID = Convert.ToInt32(String.Format("{0}", reader[0])),
-                    ItemName = String.Format("{0}", reader[1]),
-                    Quantity = Convert.ToInt32(String.Format("{0}", reader[2])),
-                    Price = Convert.ToInt32(String.Format("{0}", reader[3])),
-                    SupplierID = Convert.ToInt32(String.Format("{0}", reader[4]))
-                });
-            }
+            //SqlCommand command = new SqlCommand("EXEC SP_RetrieveItemAll", connection);
+            //SqlDataReader reader = command.ExecuteReader();
+            //while (reader.Read())
+            //{
+            //    //Console.WriteLine(String.Format("{0}", reader[0]));
+            //    ie.Add(new Item()
+            //    {
+            //        ItemID = Convert.ToInt32(String.Format("{0}", reader[0])),
+            //        ItemName = String.Format("{0}", reader[1]),
+            //        Quantity = Convert.ToInt32(String.Format("{0}", reader[2])),
+            //        Price = Convert.ToInt32(String.Format("{0}", reader[3])),
+            //        SupplierID = Convert.ToInt32(String.Format("{0}", reader[4]))
+            //    });
+            //}
 
-            //reader.Close();
-            //command.Dispose();
-            //connection.Close();
-            return ie;
+            var SP_Name = "SP_RetrieveItemAll";
+            var result = connection.Query<Item>(SP_Name, commandType: CommandType.StoredProcedure);
+            return result;
+
+            //return ie;
         }
 
         public Task<IEnumerable<Item>> Get(int ItemID)

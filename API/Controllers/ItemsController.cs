@@ -23,7 +23,8 @@ namespace API.Controllers
             }
             catch
             {
-                return Content(HttpStatusCode.BadRequest, "Failed to Create Item");
+                //return Content(HttpStatusCode.BadRequest, "Failed to Create Item");
+                return BadRequest("Failed to Create Item");
             }
         }
 
@@ -37,7 +38,8 @@ namespace API.Controllers
             }
             catch
             {
-                return Content(HttpStatusCode.BadRequest, "Failed to Get Item");
+                //return Content(HttpStatusCode.BadRequest, "Failed to Get Item");
+                return BadRequest("Failed to Get Item");
             }
         }
 
@@ -51,7 +53,8 @@ namespace API.Controllers
             }
             catch
             {
-                return Content(HttpStatusCode.BadRequest, "Failed to Get Item By ID");
+                //return Content(HttpStatusCode.BadRequest, "Failed to Get Item By ID");
+                return BadRequest("Failed to Get Item By ID");
             }
         }
 
@@ -64,7 +67,8 @@ namespace API.Controllers
             }
             catch
             {
-                return Content(HttpStatusCode.BadRequest, "Failed to Delete Item");
+                //return Content(HttpStatusCode.BadRequest, "Failed to Delete Item");
+                return BadRequest("Failed to Delete Item");
             }
         }
 
@@ -78,7 +82,8 @@ namespace API.Controllers
             }
             catch
             {
-                return Content(HttpStatusCode.BadRequest, "Failed to Update Item");
+                //return Content(HttpStatusCode.BadRequest, "Failed to Update Item");
+                return BadRequest("Failed to Update Item");
             }
         }
     }
